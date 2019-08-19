@@ -1,0 +1,251 @@
+<!-- top-nav start -->
+<!-- <app-top-nav Module="资讯运维" Page="新增资讯"></app-top-nav> -->
+<!-- top-nav end -->
+<!-- begin nav-tabs -->
+<!-- <div class="panel panel-inverse" >
+    <div class="panel-heading" >
+      <div class="panel-heading-btn">
+        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+      </div>
+    </div>
+    <div class="panel-body row">
+
+    <div class="col-sm-2">
+
+        <p class="alert alert-warning">
+          <i class="fa fa-warning fa-fw fa-lg"></i><strong>提示</strong>
+          jpge,jpg,png常见格式,大小<=10M,最多上传3张;
+        </p>
+
+        <div   color="blueLight">
+          <div *ngFor = 'let i of num'>
+             <img  src="assets/img/cover/bg-img.png" alt="Picture">
+          </div>
+            <div class="widget-body">
+
+              <form class="dropzone" *ngIf = 'num.length < 3'>
+                <div (click)='click()' class="dz-default dz-message"><span><span class="text-center"><span
+                  class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i
+                  class="fa fa-plus text-danger"></i> 
+                  </span></span></span></span></div>
+              </form>
+
+            </div>
+
+        </div>
+
+      </div>
+<div class="container col-sm-10" *ngIf = '!flag'>
+    <div class="form-group row m-b-15 titles" >
+      <label class="col-form-label">标题</label>
+      <input  type="email" class="form-control m-b-5 col-md-7" placeholder="标题" />
+    </div>
+    <div class="row row-space-10">
+      <div class="col-md-6">
+        <div class="form-group row m-b-15 titles" >
+          <label class="col-form-label">来源</label>
+          <input  type="email" class="form-control m-b-5 col-md-7" placeholder="来源" />
+        </div>
+        <div class="form-group row m-b-15 titles" >
+          <label class="col-form-label">热门</label>
+          <div class="m-b-5 col-md-7">
+            <div class="radio radio-css radio-inline">
+              <input type="radio" name="radio_css_inline" id="inlineCssRadio1" value="option1" checked />
+              <label for="inlineCssRadio1">否</label>
+            </div>
+            <div class="radio radio-css radio-inline">
+              <input type="radio" name="radio_css_inline" id="inlineCssRadio2" value="option2" />
+              <label for="inlineCssRadio2">是</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 ">
+        <div class="form-group row m-b-15 titles" >
+          <label class="col-form-label">类型</label>
+          <select class="m-b-5 col-md-7 form-control form-control-sm">
+            <option>新闻</option>
+            <option>产品</option>
+          </select>
+        </div>
+         <div class="form-group row m-b-15 titles" >
+          <label class="col-form-label">样式</label>
+          <div class="m-b-5 col-md-7">
+            <div class="radio radio-css radio-inline">
+              <input type="radio" name="radio_css" id="cssRadio1" checked value="1" />
+              <label for="cssRadio1">单图</label>
+            </div>
+            <div class="radio radio-css radio-inline">
+              <input type="radio" name="radio_css" id="cssRadio2" value="2"/>
+              <label for="cssRadio2">2图</label>
+            </div>
+            <div class="radio radio-css radio-inline">
+              <input type="radio" name="radio_css" id="cssRadio3" value="3" />
+              <label for="cssRadio3">3图</label>
+            </div>
+             <div class="radio radio-css radio-inline">
+              <input type="radio" name="radio_css" id="cssRadio4" value="4" />
+              <label for="cssRadio4">视频</label>
+            </div>
+            <div class="radio radio-css radio-inline">
+              <input type="radio" name="radio_css" id="cssRadio5" value="5" />
+              <label for="cssRadio5">轮播图</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <ueditor [(ngModel)]="html" 
+         [config]="{ wordCount: true }"
+         [loadingTip]="'加载中···欢迎使用说酒后台管理系统'"
+         (onReady)="_ready($event)"
+         (onDestroy)="_destroy()"
+         (ngModelChange)="_change($event)">
+      </ueditor>
+</div>
+<div class="container col-sm-10" *ngIf = 'flag'>
+  </div>
+</div> -->
+
+<nz-steps [nzCurrent]="current">
+  <nz-step nzTitle="标题信息"></nz-step>
+  <nz-step nzTitle="图片上传"></nz-step>
+  <nz-step nzTitle="内容编辑"></nz-step>
+  <nz-step nzTitle="完成发布"></nz-step>
+</nz-steps>
+
+<div class="steps-content">
+   <form nz-form [formGroup]="addNewsForm" >
+    <!-- 标题信息录入 -->
+      <div class="frist-step" *ngIf = "current == 0">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzRequired nzFor="note">资讯标题</nz-form-label>
+        <nz-form-control [nzSpan]="12">
+          <input id="note" type="text" nz-input formControlName="newTitle"  >
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzRequired nzFor="note">资讯来源</nz-form-label>
+        <nz-form-control [nzSpan]="12">
+          <input id="note" type="text" nz-input formControlName="resourse"  >
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="gender" nzRequired>资讯类型</nz-form-label>
+        <nz-form-control [nzSpan]="12">
+          <nz-select id="gender" formControlName="type" nzPlaceHolder="选择一个类型" (ngModelChange)="genderChange($event)">
+            <nz-option nzValue="male" nzLabel="文化"></nz-option>
+            <nz-option nzValue="female" nzLabel="知识"></nz-option>
+            <nz-option nzValue="male" nzLabel="产品"></nz-option>
+            <nz-option nzValue="female" nzLabel="行业"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control [nzSpan]="12" [nzOffset]="5">
+          <button nz-button nzType="primary" (click)="sureFirst()">确定</button>
+        </nz-form-control>
+      </nz-form-item>
+      </div>
+      <!-- 图片上传 -->
+      <div class="seconds-step" *ngIf = "current == 1">
+        <div nz-row>
+          <div nz-col nzSpan="6">
+             <nz-form-item>
+              <nz-form-label [nzSpan]="5" nzFor="gender" nzRequired>发布样式</nz-form-label>
+              <nz-form-control [nzSpan]="12">
+                <nz-select id="gender" formControlName="style" nzPlaceHolder="选择一个类型" (ngModelChange)="genderChange($event)">
+                  <nz-option nzValue="male" nzLabel="1图"></nz-option>
+                  <nz-option nzValue="female" nzLabel="2图"></nz-option>
+                  <nz-option nzValue="male" nzLabel="3图"></nz-option>
+                  <nz-option nzValue="female" nzLabel="视频"></nz-option>
+                  <nz-option nzValue="female" nzLabel="轮播"></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+             <nz-upload
+              nzAction="https://jsonplaceholder.typicode.com/posts/"
+              nzListType="picture-card"
+              [(nzFileList)]="fileList"
+              [nzShowButton]=true
+              [nzPreview]="handlePreview"
+              
+              [nzBeforeUpload]="beforeUpload"
+              >
+                <i class="anticon anticon-plus"></i>
+                <div class="ant-upload-text">选择图片</div>
+            </nz-upload>
+            <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null" (nzOnCancel)="previewVisible=false">
+              <ng-template #modalContent>
+                <img [src]="previewImage" [ngStyle]="{ 'width': '100%' }" />
+              </ng-template>
+            </nz-modal>
+          </div>
+          <div nz-col nzSpan="18">
+            <app-cropper [upImage]="files" (base64URl) = base64Url($event)></app-cropper>
+          </div>
+        </div>
+        
+        
+      </div>
+      <!-- 文本内容 -->
+      <div class="third-step" *ngIf = "current == 2">
+        <div class="lay"  nz-row>
+          <div  nz-col nzSpan="12">
+          <nz-form-item >
+          <nz-form-label [nzSpan]="5" nzRequired nzFor="note">置顶发布</nz-form-label>
+          <nz-form-control [nzSpan]="5">
+            <nz-switch [ngModel]="true" nzCheckedChildren="是" nzUnCheckedChildren="否"></nz-switch>
+          </nz-form-control>
+        </nz-form-item>
+        </div>  
+          <div nz-col nzSpan="12">  
+        <nz-form-item nzSpan="12">
+          <nz-form-label [nzSpan]="5" nzRequired nzFor="note">热门发布</nz-form-label>
+          <nz-form-control [nzSpan]="5">
+            <nz-switch [ngModel]="true" nzCheckedChildren="是" nzUnCheckedChildren="否"></nz-switch>
+          </nz-form-control>
+        </nz-form-item>
+        </div>
+        </div>  
+        <!-- 百度文本编辑器 -->
+        <ueditor [(ngModel)]="html" 
+         [config]="{ wordCount: true }"
+         [loadingTip]="'加载中···欢迎使用说酒后台管理系统'"
+         (onReady)="_ready($event)"
+         (onDestroy)="_destroy()"
+         (ngModelChange)="_change($event)">
+      </ueditor>
+      </div>
+
+      <div class="fourth-step" *ngIf = "current == 3" 
+            style="display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            "
+      >   
+      <div>
+          <button nz-button nzType="primary" (click)="reAddNews()" >
+            <span>再发布一篇咨询</span>
+          </button>
+          </div>
+      </div>
+    </form>
+</div>
+<div class="steps-action">
+  <button nz-button nzType="default" (click)="pre()" *ngIf="current > 0 && current <3">
+    <span>上一步</span>
+  </button>
+  <button nz-button nzType="default" (click)="next()" *ngIf="current < 2">
+    <span>下一步</span>
+  </button>
+  <button nz-button nzType="primary" (click)="done()" *ngIf="current === 2">
+    <span>完成</span>
+  </button>
+</div>

@@ -1,0 +1,36 @@
+<form nz-form [nzLayout]="'inline'" [formGroup]="tradForm" (ngSubmit)="submitForm()">
+	<nz-form-item *ngIf="ActiveLink =='capital/traFlow'">
+    <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="email">支付状态</nz-form-label>
+    <nz-form-control >
+			<nz-select style="width: 200px" nzShowSearch nzAllowClear nzPlaceHolder="所有" [(ngModel)]="selectedValue">
+			<nz-option nzLabel="未成功" nzValue="0"></nz-option>
+			<nz-option nzLabel="已成功" nzValue="1"></nz-option>
+			</nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+<nz-form-item *ngIf="ActiveLink =='capital/traFlow'">
+  <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="email">交易类型</nz-form-label>
+  <nz-form-control >
+		<nz-select style="width: 200px" nzShowSearch nzAllowClear nzPlaceHolder="所有" [(ngModel)]="selectedValue">
+		<nz-option nzLabel="文创素材" nzValue="0"></nz-option>
+		<nz-option nzLabel="文创众筹" nzValue="1"></nz-option>
+		<nz-option nzLabel="文创产品" nzValue="1"></nz-option>
+		</nz-select>
+  </nz-form-control>
+</nz-form-item>
+
+ <nz-form-item>
+    <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>创建时间</nz-form-label>
+    <nz-form-control [nzSm]="16" [nzXs]="24">
+      <nz-range-picker nzShowTime formControlName="rangePickerTime"></nz-range-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+    	<button nz-button nzType="primary" (click)="loadTwo()" [nzLoading]="isLoadingTwo" style="margin-right: 8px">
+    		<i class="anticon anticon-poweroff"></i>查询</button>
+      <button nz-button nzType="primary" >重置</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

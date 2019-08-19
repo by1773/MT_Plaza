@@ -1,0 +1,18 @@
+<form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" >
+  <nz-form-item >
+  	<nz-form-label [nzSm]="4" [nzXs]="24"  nzFor="userName">名称</nz-form-label>
+    <nz-form-control>
+      <nz-input-group nzPrefixIcon="anticon anticon-user">
+        <input formControlName="userName" nz-input placeholder="名称搜索">
+      </nz-input-group>
+      
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+    	<button nz-button nzType="primary" (click)="loadTwo()" [nzLoading]="isLoadingTwo" style="margin-right: 8px">
+    		<i class="anticon anticon-poweroff"></i>查询</button>
+      <button nz-button nzType="primary" >重置</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

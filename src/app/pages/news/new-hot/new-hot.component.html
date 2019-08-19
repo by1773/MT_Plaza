@@ -1,0 +1,45 @@
+<div class="tab-content">
+<div class="panel panel-inverse" data-sortable-id="ui-general-1">
+		<div class="panel-heading">
+			<app-page-tool></app-page-tool>
+		</div>
+		<div class="panel-body">
+		<div class="table-responsive">
+    	<nz-table
+      #rowSelectionTable
+      [nzData]="dataSet"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+      [nzBordered]="true"
+      [nzScroll]="{ x:'1300px',y: '240px' }"
+      [nzTitle]="'资讯热点管理'"
+      >
+      <thead nz-thead>
+        <tr>
+          <th nzWidth="50px" nz-th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+          <th nz-th nzWidth="100px">标题</th>
+          <th nz-th nzWidth="300px">访问地址</th>
+          <th nz-th nzWidth="100px">操作</th>
+        </tr>
+      </thead>
+	  	<tbody z-tbody id="nz_table">
+	      <tr *ngFor="let data of rowSelectionTable.data" nz-tbody-tr>
+	        <td nz-td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus($event)"></td>
+	        <td nz-td>{{data.name}}</td>
+	        <td nz-td>{{data.address}}</td>
+	        <td nz-td>
+		        <a routerLink="view">预览</a>
+		        <nz-divider nzType="vertical"></nz-divider>
+		        <nz-popconfirm *ngIf="true" [nzTitle]="'确定要编辑该条热门消息？'" (nzOnConfirm)="delete(role)">
+		            <a nz-popconfirm>编辑</a>
+		        </nz-popconfirm>
+		      </td>
+	      </tr>
+	    </tbody>
+    </nz-table>
+		<!-- 分页 -->
+		<app-pagination  [total]="pageTotal"  [btnCls]="btnCls" (onPageChanged)="onPageChanged($event)"></app-pagination>
+		</div>
+	</div>
+</div>
+</div>

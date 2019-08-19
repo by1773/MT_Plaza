@@ -1,0 +1,98 @@
+<form nz-form [nzLayout]="'inline'" [formGroup]="memberForm" (ngSubmit)="submitForm()">
+    <nz-form-item *ngIf="ActiveLink =='member/memberList' || ActiveLink =='member/coinApply'">
+    <nz-form-label [nzSm]="7" [nzXs]="24"  nzFor="email">状态</nz-form-label>
+    <nz-form-control >
+      <nz-select formControlName="status" style="width: 100px" nzShowSearch nzAllowClear nzPlaceHolder="所有" [(ngModel)]="selectedValue">
+        <nz-option *ngIf="ActiveLink =='member/memberList' " nzLabel="未认证" nzValue="0"></nz-option>
+        <nz-option *ngIf="ActiveLink =='member/memberList' " nzLabel="认证中" nzValue="1"></nz-option>
+        <nz-option *ngIf="ActiveLink =='member/memberList' " nzLabel="已认证" nzValue="0"></nz-option>
+        <nz-option *ngIf="ActiveLink =='member/memberList' " nzLabel="认证失败" nzValue="1"></nz-option>
+        <nz-option *ngIf="ActiveLink =='member/coinApply'" nzLabel="未审批" nzValue="1"></nz-option>
+        <nz-option *ngIf="ActiveLink =='member/coinApply'" nzLabel="已同意" nzValue="0"></nz-option>
+        <nz-option *ngIf="ActiveLink =='member/coinApply'" nzLabel="已拒绝" nzValue="1"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+ <nz-form-item *ngIf="ActiveLink =='member/coinApply'">
+    <nz-form-label [nzSm]="5" [nzXs]="24"  nzFor="userName">申请人</nz-form-label>
+    <nz-form-control>
+      <nz-input-group nzPrefixIcon="anticon anticon-user">
+        <input formControlName="truename" nz-input placeholder="truename">
+      </nz-input-group>
+      
+    </nz-form-control>
+  </nz-form-item>
+
+<nz-form-item *ngIf="ActiveLink =='member/coinGive'">
+  <nz-form-label [nzSm]="5" [nzXs]="24"  nzFor="userName">赠送人</nz-form-label>
+  <nz-form-control>
+    <nz-input-group nzPrefixIcon="anticon anticon-user">
+      <input formControlName="name" nz-input placeholder="name">
+    </nz-input-group>
+    
+  </nz-form-control>
+</nz-form-item>
+
+<nz-form-item *ngIf="ActiveLink =='member/coinGive'">
+  <nz-form-label [nzSm]="4" [nzXs]="24"  nzFor="userName">用户</nz-form-label>
+  <nz-form-control>
+    <nz-input-group nzPrefixIcon="anticon anticon-user">
+      <input formControlName="name" nz-input placeholder="name">
+    </nz-input-group>
+    
+  </nz-form-control>
+</nz-form-item>
+
+  <nz-form-item *ngIf="ActiveLink =='member/memberList'">
+    <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="userName">真实姓名</nz-form-label>
+    <nz-form-control>
+      <nz-input-group nzPrefixIcon="anticon anticon-user">
+        <input formControlName="truename" nz-input placeholder="truename">
+      </nz-input-group>
+      
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item *ngIf="ActiveLink =='member/memberList'">
+    <nz-form-label [nzSm]="4" [nzXs]="24"  nzFor="userName">昵称</nz-form-label>
+    <nz-form-control>
+      <nz-input-group nzPrefixIcon="anticon anticon-user">
+        <input formControlName="name" nz-input placeholder="name">
+      </nz-input-group>
+      
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item *ngIf="ActiveLink =='member/memberList'">
+    <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="userName">电话号码</nz-form-label>
+    <nz-form-control>
+      <nz-input-group nzPrefixIcon="anticon anticon-user">
+        <input formControlName="phone" nz-input placeholder="phone">
+      </nz-input-group>
+      
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item *ngIf="ActiveLink =='member/coinApply'">
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>申请时间</nz-form-label>
+    <nz-form-control [nzSm]="16" [nzXs]="24">
+      <nz-range-picker  nzShowTime  [nzFormat] = 'yyyy/MM/dd'></nz-range-picker>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item *ngIf="ActiveLink =='member/coinGive'">
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>赠送时间</nz-form-label>
+    <nz-form-control [nzSm]="16" [nzXs]="24">
+      <nz-range-picker nzShowTime  [nzFormat] = 'yyyy/MM/dd'></nz-range-picker>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button nzType="primary" (click)="searchDate()" [nzLoading]="isLoadingTwo" style="margin-right: 8px">
+        <i class="anticon anticon-poweroff"></i>查询</button>
+      <button nz-button nzType="primary" (click)="reset()">重置</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

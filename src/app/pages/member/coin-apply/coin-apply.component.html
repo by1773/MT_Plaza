@@ -1,0 +1,55 @@
+<div class="tab-content" >
+<div class="panel panel-inverse" data-sortable-id="ui-general-1">
+		<div class="panel-heading">
+			<app-page-tool></app-page-tool>
+		</div>
+		<div class="panel-body" [@fadeIn]="fadeIn">
+		<app-member-btn></app-member-btn>
+		<button nz-button nzType="primary" style="margin-right: 8px">审批申请</button>
+		<button nz-button nzType="primary" >申请说酒币</button>
+		<div class="table-responsive">
+    	<nz-table
+      #rowSelectionTable
+      [nzData]="dataSet"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+      [nzBordered]="true"
+      [nzScroll]="{ x:'1300px',y: '240px' }"
+      [nzTitle]="'说酒币申请管理'"
+      >
+      <thead nz-thead>
+        <tr>
+          <th nzWidth="50px" nz-th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+          <th nz-th nzWidth="100px">审批状态</th>
+          <th nz-th nzWidth="100px">申请人</th>
+          <th nz-th nzWidth="100px">申请数量</th>
+          <th nz-th nzWidth="100px">申请时间</th>
+          <th nz-th nzWidth="100px">审批时间</th>
+          <th nz-th nzWidth="100px">操作</th>
+        </tr>
+      </thead>
+	  	<tbody z-tbody id="nz_table">
+	      <tr *ngFor="let data of rowSelectionTable.data" nz-tbody-tr>
+	        <td nz-td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus($event)" [appTableSelected] = "data.checked"></td>
+	        <td nz-td>{{data.name}}</td>
+	        <td nz-td>{{data.age}}</td>
+	        <td nz-td>{{data.name}}</td>
+	        <td nz-td>{{data.address}}</td>
+	        <td nz-td>{{data.address}}</td>
+	        <td nz-td>
+		        <button class="btn btns" routerLink="view" [ngClass] = "{'active':!data.checked }" [disabled]="!data.checked" >查看</button>
+		       <!--  <nz-popconfirm *ngIf="true" [nzTitle]="'确定要删除这条数据吗？'" (nzOnConfirm)="delete(role)">
+		            <a nz-popconfirm routerLink="giveCoin">赠送说酒币</a>
+		        </nz-popconfirm> -->
+		      </td>
+	      </tr>
+	    </tbody>
+    </nz-table>
+    <!-- </div>	 -->
+    
+		<!-- 分页 -->
+		<app-pagination  [total]="pageTotal"  [btnCls]="btnCls" (onPageChanged)="onPageChanged($event)"></app-pagination>
+		</div>
+	</div>
+</div>
+</div>

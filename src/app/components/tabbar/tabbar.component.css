@@ -1,0 +1,16 @@
+#tabbar{
+	position: relative;
+	border-top: solid 1px #c1c8cc;
+	border-bottom: solid 2px #000;
+	background: #f3f3f3
+}
+#tabbar .tabs{
+	/*flex: 1*/
+}
+button{
+	outline: none;
+	border: none
+}
+#tabbar nz-tabset  a:hover{
+	color: #00acac!important
+}

@@ -1,0 +1,12 @@
+<nz-tabset >
+    <nz-tab *ngFor="let tab of tabss" [nzTitle]="titleTemplate">
+      <ng-template #titleTemplate>
+        <i [ngClass]="tab.icon"></i>{{ tab.name }}
+      </ng-template>
+    </nz-tab>
+</nz-tabset>
+	<app-news-btn ></app-news-btn>
+	<button nz-button nzType="primary" style="margin-right: 8px">新增</button>
+	<button nz-button nzType="primary" style="margin-right: 8px">发布</button>
+	<button nz-button nzType="primary" >置顶</button>
+	<app-new-table ></app-new-table>

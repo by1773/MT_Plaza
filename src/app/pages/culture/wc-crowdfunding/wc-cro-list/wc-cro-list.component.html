@@ -1,0 +1,78 @@
+<div class="tab-content">
+<div class="panel panel-inverse" data-sortable-id="ui-general-1">
+		<div class="panel-heading">
+			<app-page-tool></app-page-tool>
+		</div>
+		<div class="panel-body">
+		<app-wc-cro-btn></app-wc-cro-btn>
+		<button nz-button nzType="primary" style="margin-right: 5px">新增</button>
+		<button nz-button nzType="primary" style="margin-right: 5px">发布</button>
+		<button nz-button nzType="primary" style="margin-right: 5px">参与名单</button>
+		<button nz-button nzType="primary" >提前结束</button>
+		<div class="table-responsive">
+    	<nz-table
+      #rowSelectionTable
+      [nzData]="dataSet"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+      [nzBordered]="true"
+      [nzScroll]="{ x:'1300px',y: '240px' }"
+      [nzTitle]="'素材库管理'"
+      >
+      <thead nz-thead>
+        <tr>
+          <th nzWidth="50px" nz-th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+          <th nz-th nzWidth="100px">发布状态</th>
+          <th nz-th nzWidth="100px">众筹名</th>
+          <th nz-th nzWidth="100px">一级众筹类型</th>
+          <th nz-th nzWidth="100px">二级众筹类型</th>
+          <th nz-th nzWidth="100px">目标价格(元)</th>
+          <th nz-th nzWidth="100px">已筹金额(元)</th>
+          <th nz-th nzWidth="100px">支持人数</th>
+          <th nz-th nzWidth="100px">发起时间</th>
+          <th nz-th nzWidth="100px">结束时间</th>
+          <th nz-th nzWidth="100px">周期(天)</th>
+          <th nz-th nzWidth="100px">回报时间(天)</th>
+          <th nz-th nzWidth="100px">创建时间</th>
+					<th nz-th nzWidth="100px">编辑时间</th>
+          <th nz-th nzWidth="200px">操作</th>
+        </tr>
+      </thead>
+	  	<tbody z-tbody id="nz_table">
+	      <tr *ngFor="let data of rowSelectionTable.data" nz-tbody-tr>
+	        <td nz-td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus($event)"></td>
+	        <td nz-td>{{data.name}}</td>
+	        <td nz-td>{{data.age}}</td>
+	        <td nz-td>{{data.name}}</td>
+	        <td nz-td>{{data.age}}</td>
+	        <td nz-td>{{data.name}}</td>
+	        <td nz-td>{{data.age}}</td>
+	        <td nz-td>{{data.name}}</td>
+	        <td nz-td>{{data.age}}</td>
+	        <td nz-td>{{data.name}}</td>
+	        <td nz-td>{{data.age}}</td>
+	        <td nz-td>{{data.name}}</td>
+	        <td nz-td>{{data.age}}</td>
+	        <td nz-td>{{data.name}}</td>
+	        <td nz-td>
+		        <a routerLink="view">查看</a>
+		        <nz-divider nzType="vertical"></nz-divider>
+		        <a routerLink="preview">预览</a>
+		        <nz-divider nzType="vertical"></nz-divider>
+		        <a routerLink="edit">编辑</a>
+		        <nz-divider nzType="vertical"></nz-divider>
+		        <nz-popconfirm *ngIf="true" [nzTitle]="'确定要删除这条数据吗？'" (nzOnConfirm)="delete(role)">
+		            <a nz-popconfirm routerLink="giveCoin">删除</a>
+		        </nz-popconfirm>
+		      </td>
+	      </tr>
+	    </tbody>
+    </nz-table>
+    <!-- </div>	 -->
+    
+		<!-- 分页 -->
+		<app-pagination  [total]="pageTotal"  [btnCls]="btnCls" (onPageChanged)="onPageChanged($event)"></app-pagination>
+		</div>
+	</div>
+</div>
+</div>

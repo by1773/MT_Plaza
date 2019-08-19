@@ -1,0 +1,61 @@
+<form nz-form [nzLayout]="'inline'" [formGroup]="consultSearchForm" (ngSubmit)="submitForm()">
+    <nz-form-item >
+      <nz-form-label [nzSm]="7" [nzXs]="24"  nzFor="email">状态</nz-form-label>
+      <nz-form-control >
+        <nz-select formControlName="status" style="width: 100px" nzShowSearch nzAllowClear nzPlaceHolder="所有" [(ngModel)]="selectedValue">
+          <nz-option *ngIf="ActiveLink =='news/new' " nzLabel="已发布" nzValue="0"></nz-option>
+          <nz-option *ngIf="ActiveLink =='news/new' " nzLabel="未发布" nzValue="1"></nz-option>
+          <nz-option *ngIf="ActiveLink =='news/newsType' " nzLabel="正常" nzValue="0"></nz-option>
+          <nz-option *ngIf="ActiveLink =='news/newsType' " nzLabel="禁用" nzValue="1"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- *ngIf="ActiveLink =='news/new' && Aindex = 0" -->
+    <nz-form-item *ngIf="ActiveLink =='news/new'">
+        <nz-form-label [nzSm]="7" [nzXs]="24"  nzFor="email">类型</nz-form-label>
+        <nz-form-control >
+          <nz-select formControlName="status" style="width: 100px" nzShowSearch nzAllowClear nzPlaceHolder="所有" [(ngModel)]="selectedValue">
+            <nz-option *ngIf="ActiveLink =='news/new' " nzLabel="所有" nzValue="0"></nz-option>
+            <nz-option *ngIf="ActiveLink =='news/new' " nzLabel="新闻" nzValue="1"></nz-option>
+            <nz-option *ngIf="ActiveLink =='news/newsType' " nzLabel="政策法规" nzValue="0"></nz-option>
+            <nz-option *ngIf="ActiveLink =='news/newsType' " nzLabel="行业" nzValue="1"></nz-option>
+          </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item *ngIf="ActiveLink =='news/coinApply'">
+      <nz-form-label [nzSm]="3" [nzXs]="24"  nzFor="userName">标题</nz-form-label>
+      <nz-form-control>
+        <nz-input-group nzPrefixIcon="anticon anticon-user">
+          <input formControlName="truename" nz-input placeholder="truename">
+        </nz-input-group>
+        
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item *ngIf="ActiveLink =='news/newsType'">
+      <nz-form-label [nzSm]="3" [nzXs]="24"  nzFor="userName">名称</nz-form-label>
+      <nz-form-control>
+        <nz-input-group nzPrefixIcon="anticon anticon-user">
+          <input formControlName="name" nz-input placeholder="name">
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item *ngIf="ActiveLink =='news/new'">
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>发布时间</nz-form-label>
+    <nz-form-control [nzSm]="16" [nzXs]="24">
+      <nz-range-picker nzShowTime ></nz-range-picker>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button nzType="primary" (click)="searchDate()" [nzLoading]="isLoadingTwo" style="margin-right: 8px">
+        <i class="anticon anticon-poweroff"></i>查询</button>
+      <button nz-button nzType="primary" (click)="reset()">重置</button>
+    </nz-form-control>
+  </nz-form-item> 
+</form>
+  
+  
