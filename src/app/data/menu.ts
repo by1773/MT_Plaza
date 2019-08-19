@@ -1,7 +1,7 @@
 export const MENU  = [
   	{
 		'icon': 'fa fa-user',
-		'title': '会员检验',
+		'title': '模块管理',
 		'url': '',
 		'caret': 'true',
 		'submenu': [{
@@ -16,7 +16,7 @@ export const MENU  = [
 		}]
 	},{
 		'icon': 'fa fa-envelope-o',
-		'title': '咨询运维',
+		'title': '首页管理',
 		'caret': 'true',
 		'url': '',
 		'submenu': [{
@@ -35,7 +35,7 @@ export const MENU  = [
 	},
   {
 		'icon': 'fa fa-skyatlas',
-		'title': '文创产品管理',
+		'title': '产品管理',
 		'url': '',
 		'caret': 'true',
 		'submenu': [
@@ -59,68 +59,32 @@ export const MENU  = [
 			'url': 'culture/wcPr/list',
 			'title': '文创产品管理'
 		},
-		{
-			'url': 'culture/wcPrO/list',
-			'title': '文创产品订单'
-		},
-		{
-			'url': 'culture/wcPrS/list',
-			'title': '文创产品售后申请'
-		},
-		{
-			'url': 'culture/wcPrC/list',
-			'title': '文创产品评价'
-		},
-		{
-			'url': 'culture/wcCrT/list',
-			'title': '文创众筹类型管理'
-		},
-		{
-			'url': 'culture/wcCrF/list',
-			'title': '文创众筹管理'
-		},
-		{
-			'url': 'culture/wcCrO/list',
-			'title': '文创众筹订单'
-		}
+		// {
+		// 	'url': 'culture/wcPrO/list',
+		// 	'title': '文创产品订单'
+		// },
+		// {
+		// 	'url': 'culture/wcPrS/list',
+		// 	'title': '文创产品售后申请'
+		// },
+		// {
+		// 	'url': 'culture/wcPrC/list',
+		// 	'title': '文创产品评价'
+		// },
+		// {
+		// 	'url': 'culture/wcCrT/list',
+		// 	'title': '文创众筹类型管理'
+		// },
+		// {
+		// 	'url': 'culture/wcCrF/list',
+		// 	'title': '文创众筹管理'
+		// },
+		// {
+		// 	'url': 'culture/wcCrO/list',
+		// 	'title': '文创众筹订单'
+		// }
 
 		]
-	},
-	{
-		'icon': 'fa fa-internet-explorer',
-		'title': '发现市场信息管理',
-		'url': '',
-		'caret': 'true',
-		'submenu': [{
-			'url': 'business/fxAllInfo',
-			'title': '综合信息管理'
-		},{
-			'url': 'business/fxProType',
-			'title': '产品类型管理'
-		}]
-	},
-	{
-		'icon': 'fa fa-cny',
-		'title': '资金管理',
-		'url': '',
-		'caret': 'true',
-		'submenu': [{
-			'url': 'capital/traFlow',
-			'title': '交易流水'
-		}]
-	},
-	{
-		'icon': 'fa fa-handshake-o',
-		'title': '茅友圈管理',
-		'url': '',
-		'caret': 'true',
-		'submenu': [{
-			'url': 'friends/FrDynamic',
-			'title': '动态管理'
-		},{
-			'url': 'friends/FrDynReply',
-			'title': '评论回复管理'
-		}]
 	},
 	{
 		'icon': 'fa fa-sliders',
